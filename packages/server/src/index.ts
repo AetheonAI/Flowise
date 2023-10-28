@@ -412,16 +412,28 @@ export class App {
         })
 
         // Add chatmessages for chatflowid
-        this.app.post('/api/v1/chatmessage/:id', async (req: Request, res: Response) => {
-            const body = req.body
-            const newChatMessage = new ChatMessage()
-            Object.assign(newChatMessage, body)
+       this.app.post('/api/v1/chatmessage/:id', async (req: Request, res: Response) => {
+    // Extract the chatbot ID from the URL parameter
+    const chatbotId = req.params.id;
+    
+    // Extract the body of the POST request
+    const body = req.body;
 
-            const chatmessage = this.AppDataSource.getRepository(ChatMessage).create(newChatMessage)
-            const results = await this.AppDataSource.getRepository(ChatMessage).save(chatmessage)
+    // Your existing logic to create a new ChatMessage object
+    const newChatMessage = new ChatMessage();
+    Object.assign(newChatMessage, body);
 
-            return res.json(results)
-        })
+    // Your existing logic to save the chat message
+    const chatmessage = this.AppDataSource.getRepository(ChatMessage).create(newChatMessage);
+    const results = await this.AppDataSource.getRepository(ChatMessage).save(chatmessage);
+
+    // Emit the saved message using Socket.io
+    io.emit('newMessage', { chatbotId, message: results });
+
+    // Respond with the saved message
+    return res.json(results);
+});
+
 
         // Delete all chatmessages from chatflowid
         this.app.delete('/api/v1/chatmessage/:id', async (req: Request, res: Response) => {
