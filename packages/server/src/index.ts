@@ -113,7 +113,22 @@ export class App {
     if (process.env.NUMBER_OF_PROXIES && parseInt(process.env.NUMBER_OF_PROXIES) > 0) {
         this.app.set('trust proxy', parseInt(process.env.NUMBER_OF_PROXIES));
     }
+    this.app.post('/api/v1/chatmessage/:id', async (req: Request, res: Response) => {
+            const chatbotId = req.params.id;
+            const body = req.body;
+            const newChatMessage = new ChatMessage();
+            Object.assign(newChatMessage, body);
 
+            const chatmessage = this.AppDataSource.getRepository(ChatMessage).create(newChatMessage);
+            const results = await this.AppDataSource.getRepository(ChatMessage).save(chatmessage);
+
+            // Broadcast the message to all connected WebSocket clients
+            if (socketIO) {
+                socketIO.emit('newMessage', { chatbotId, message: body });
+            }
+
+            return res.json(results);
+        });
     // Allow access from *
     this.app.use(cors());
 
@@ -125,6 +140,9 @@ export class App {
         // ... (Your basic auth and whitelist logic here)
     }
 
+   
+     
+        
     // WebSocket event handling should come after setting up your middleware
     if (socketIO) {
         socketIO.on('connection', (socket) => {
