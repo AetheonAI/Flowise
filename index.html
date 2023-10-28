@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="script.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="toolbar">
+        <!-- Retained original style, added onclick attributes -->
+        <div class="icon" onclick="navigateTo('home')"><i class="fas fa-home"></i> Home</div>
+        <div class="icon" onclick="navigateTo('chatbots')"><i class="fas fa-list"></i> Chatbots</div>
+        <div class="icon" onclick="navigateTo('settings')"><i class="fas fa-cog"></i> Settings</div>
+        <!-- ... other icons ... -->
+        <div class="icon" style="margin-left: auto;" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</div> <!-- Logout icon at the right -->
+    </div>
+
+    <div id="mainContainer">
+        <div id="chatSection">
+            <div id="searchBar">
+                <input type="text" id="searchInput" oninput="filterChats()" placeholder="Search...">
+            </div>
+            <div id="chatbotList"></div>
+        </div>
+
+        <div id="chatAndSidebar">
+            <div id="chatInterface">
+                <div id="chatContentWrapper">
+                    <div id="chatContent"></div>  <!-- This div will hold the chat messages -->
+                </div>
+                <div id="messageBox">
+                    <input type="text" id="chatInput" placeholder="Type a message...">
+                    <button onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div id="sidebar">
+                <div id="personIcon">Person Icon</div> <!-- Icon above the right-hand customer details window -->
+                <h2>Customer Details</h2>
+                <!-- ... -->
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

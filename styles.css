@@ -1,0 +1,434 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+#settingsContainer {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+.settingItem {
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.settingTitle {
+    max-width:140px;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.settingDescription {
+    max-width: 350px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #666; /* Lighter text color for description */
+}
+
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+#homeContainer {
+    text-align: center;
+}
+
+#logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#centeredContainer {
+    display: flex; /* Enable flex layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100%; /* Take up 100% of the body and html height */
+}
+
+#centeredContent {
+    text-align: center; /* Center text within the centeredContent div */
+    padding-top: 80px;
+}
+
+#iconContainer {
+    display: flex;
+    justify-content: center; /* Centers the icon blocks horizontally */
+    flex-wrap: wrap; /* Allows the icon blocks to wrap to the next line if there isn't enough space */
+    gap: 20px; /* Adds spacing between the icon blocks */
+}
+
+.iconBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .iconBlock p {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+
+#toolbar {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+}
+
+.icon {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.icon, .chatbotItem {
+    cursor: pointer;
+}
+
+
+#mainContainer {
+    display: flex;
+    width: 100%;
+}
+
+#chatSection {
+    width: 400px;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+#chatAndSidebar {
+    width: 67%;
+    display: flex;
+}
+
+#chatInterface {
+    flex: 4;
+    border-right: 1px solid #ccc;
+}
+
+#sidebar {
+    width: 250px;
+    flex: 1;
+}
+
+#personIcon {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#searchBar {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#chatbotList {
+    width: 98%;
+    padding: 5px;
+    border-right: 0px solid #000;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+#chatAndSidebar {
+    width: 100%; /* Adjusted to 100% to span the entire width */
+    display: flex;
+    flex-grow: 1;
+}
+
+#chatInterface {
+    flex: 4; /* 4/5th of the chatAndSidebar width */
+    flex-grow: 1;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100vh; /* Set to 100vh to fill the vertical space */
+    display: none;
+    flex-direction: column;
+}
+
+#detailsHeader {
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#contactButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.contactBtn {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .contactBtn i {
+        font-size: 20px;
+    }
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+.chatbotItem {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#sidebar, #chatInterface {
+    display: none;
+}
+
+#sidebar {
+    flex: 1; /* 1/5th of the chatAndSidebar width */
+    border-left: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#searchBar {
+    width: 96%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#chatContent {
+    background-color: #ffffff; /* white background */
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.toolbarBtn {
+    background-color: #f0f0f0; /* Or any color you prefer */
+    border: none;
+    padding: 10px;
+    margin: 0 5px; /* Adds spacing between buttons */
+    cursor: pointer;
+}
+
+    .toolbarBtn:hover {
+        background-color: #e0e0e0; /* Or any color you prefer for hover effect */
+    }
+
+#chatAndSidebar {
+    width: 66%;
+    display: flex;
+}
+
+#chatInterface {
+    flex: 4; /* Adjusted for sidebar */
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+#sidebar {
+    flex: 1; /* 1/5th of the chatAndSidebar width */
+    border-left: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#messageBox {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 30%;
+    position: relative;
+    word-wrap: break-word;
+    display: block;
+    box-sizing: border-box;
+}
+
+.time-stamp {
+    font-size: 0.8em;
+    color: #777;
+    margin: 2px 0;
+    display: block;
+}
+
+.message.customer {
+    background-color: #f0f0f0; /* Light grey background */
+    margin-left: auto;
+    border: solid 1px #e0e0e0;
+}
+
+    .message.customer::before {
+        content: "";
+        position: absolute;
+        right: -10px;
+        top: 10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent transparent #f0f0f0;
+    }
+
+.message.chatbot {
+    background-color: #ffffff; /* White background */
+    border: solid 1px #e0e0e0;
+}
+
+    .message.chatbot::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent #ffffff transparent transparent;
+    }
+
+
+
+#messageBox {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+#chatInput {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #008CBA; /* Blue background */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.detailText {
+    font-size: 1.4em; /* Adjust this value to your preference */
+    margin-bottom: 10px; /* Optional: Adds some space between the lines */
+}
+
+#analyticsContainer {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}

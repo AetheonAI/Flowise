@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Toolbar copied from index.html -->
+    <div id="toolbar">
+        <div class="icon" onclick="navigateTo('home')"><i class="fas fa-home"></i> Home</div>
+        <div class="icon" onclick="navigateTo('chatbots')"><i class="fas fa-list"></i> Chatbots</div>
+        <div class="icon" onclick="navigateTo('settings')"><i class="fas fa-cog"></i> Settings</div>
+        <div class="icon" style="margin-left: auto;" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+    </div>
+
+    <div id="settingsContainer">
+        <div class="settingItem">
+            <p class="settingTitle">Stop All Chats</p>
+            <p class="settingDescription">Toggle to activate or deactivate the chatbot. When off, the chatbot won't respond to queries.</p>
+            <label class="switch">
+                <input type="checkbox" id="setting1" onclick="toggleSetting(1)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <hr>
+        <div class="settingItem">
+            <p class="settingTitle">Automatic Responses</p>
+            <p class="settingDescription">Allows toggling automatic responses. When on, chatbot responds automatically; when off, queries may be directed to a human.</p>
+            <label class="switch">
+                <input type="checkbox" id="setting2" onclick="toggleSetting(2)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <hr>
+        <div class="settingItem">
+            <p class="settingTitle">Profanity Filter</p>
+            <p class="settingDescription">Enable to activate profanity filter, blocking inappropriate language. When off, interaction is more unfiltered.</p>
+            <label class="switch">
+                <input type="checkbox" id="setting3" onclick="toggleSetting(3)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <hr>
+        <div class="settingItem">
+            <p class="settingTitle">Learning Mode</p>
+            <p class="settingDescription">Toggle to allow chatbot to learn from interactions for improved performance over time.</p>
+            <label class="switch">
+                <input type="checkbox" id="setting4" onclick="toggleSetting(4)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <hr>
+        <div class="settingItem">
+            <p class="settingTitle">Notifications</p>
+            <p class="settingDescription">Toggle to enable or disable notifications.</p>
+            <label class="switch">
+                <input type="checkbox" id="setting5" onclick="toggleSetting(5)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

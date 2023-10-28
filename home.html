@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   
+</head>
+<body id="homeBody">
+    <div id="centeredContent">
+        <img src="FinalLOGO.png" width="600" height="600" alt="Logo" id="logo">
+        <div id="iconContainer">
+            <div class="iconBlock" onclick="navigateTo('home')">
+                <i class="fas fa-home fa-3x"></i>
+                <p>Home</p>
+            </div>
+            <div class="iconBlock" onclick="navigateTo('chatbots')">
+                <i class="fas fa-list fa-3x"></i>
+                <p>Chatbots</p>
+            </div>
+            <div class="iconBlock" onclick="navigateTo('settings')">
+                <i class="fas fa-cog fa-3x"></i>
+                <p>Settings</p>
+            </div>
+            <div class="iconBlock" onclick="navigateTo('analytics')">
+                <i class="fas fa-chart-bar fa-3x"></i>
+                <p>Analytics</p>
+            </div>
+            <div class="iconBlock" onclick="logout()">
+                <i class="fas fa-sign-out-alt fa-3x"></i>
+                <p>Logout</p>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script src="script.js"></script> <!-- Moved script.js here to ensure it loads before body content -->
+</body>
+</html>
